@@ -1,0 +1,26 @@
+/* Vertex shader implementing the Gourad Diffuse lighting model */
+
+#version 400
+
+layout (location = 0) in vec3 VertexPosition;
+layout (location = 1) in vec3 VertexNormal;
+
+out vec3 LightIntensity;
+
+uniform vec4 LightPosition = vec4(1, 0, -1, 1);
+uniform vec3 DiffuseReflectivity = vec3(1.0, 1.0, 1.0);
+uniform vec3 LD = vec3(1, 1, 1);
+
+uniform mat4 transform;
+
+ 
+void main()
+{
+	vec3 tnorm = normalize(mat3(transform) * VertexNormal);
+	vec4 eyeCoords = transform * vec4(VertexPosition, 1.0);
+	
+	vec3 s = normalize(vec3(LightPosition - eyeCoords));
+	
+	LightIntensity =  LD * DiffuseReflectivity * max(dot(s, tnorm), 0);
+	gl_Position = eyeCoords;
+}

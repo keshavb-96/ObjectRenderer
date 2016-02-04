@@ -1,0 +1,11 @@
+/* Fragment shader implementing the Gourad diffuse lighting model */
+
+#version 400
+
+in vec3 LightIntensity;
+
+layout (location = 0) out vec4 fragColor;
+
+void main(){
+	fragColor = vec4(LightIntensity, 1.0);
+}
