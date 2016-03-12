@@ -132,7 +132,7 @@ void Model::setStdTransform() {
 	float scaleFactor = 1 / circumRadius();
 	glm::mat4 transMat = glm::translate(-(this->center));
 	glm::mat4 scaleMat = glm::scale(glm::vec3(scaleFactor, scaleFactor, scaleFactor));
-	glm::vec3 eulerAngles(-glm::pi<float>()/6, 0, 0);
+	glm::vec3 eulerAngles(0, 0, 0);
 	glm::quat rotQuat(eulerAngles);
 	glm::mat4 rotationMat = glm::toMat4(rotQuat);
 

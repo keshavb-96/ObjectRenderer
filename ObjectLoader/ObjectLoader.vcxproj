@@ -96,6 +96,10 @@
       <AdditionalLibraryDirectories>C:\Users\keshavb96\Desktop\VSProjects\ObjectLoader\ObjectLoader\lib\lib_GLEW;C:\Users\keshavb96\Desktop\VSProjects\ObjectLoader\ObjectLoader\lib\lib-vc2015_GLFW;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glew32.lib;glew32s.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)diffuseVert.txt" "$(OutDir)" /D /y /s /r
+xcopy "$(ProjectDir)diffuseFrag.txt" "$(OutDir)" /D /y /s /r</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -129,6 +133,10 @@
       <AdditionalLibraryDirectories>C:\Users\keshavb96\Desktop\VSProjects\ObjectLoader\ObjectLoader\lib\lib_GLEW;C:\Users\keshavb96\Desktop\VSProjects\ObjectLoader\ObjectLoader\lib\lib-vc2015_GLFW;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glew32.lib;glew32s.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(ProjectDir)diffuseVert.txt" "$(OutDir)" /D /y /s /r
+xcopy "$(ProjectDir)diffuseFrag.txt" "$(OutDir)" /D /y /s /r</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>

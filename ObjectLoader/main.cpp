@@ -2,6 +2,7 @@
 #include <include_GLEW\GL\glew.h>
 #include <include_GLFW\GLFW\glfw3.h>
 #include "shader.h"
+#include <string>
 #include "model.h"
 using namespace std;
 
@@ -38,15 +39,23 @@ int main(int argc, char** argv) {
 	}
 
 	double xFin, yFin;
-	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "hello world", NULL, NULL);
+	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Object Loader", NULL, NULL);
 
 	glfwMakeContextCurrent(window);
 
 	glewInit();
 
+	string objectfilepath;
+	if (argc != 2) {
+		cout << "please specify path of object file" << endl;
+	}
+
+	else {
+		objectfilepath = argv[1];
+	}
 
 	Shader shader("diffuseVert.txt", "diffuseFrag.txt");
-	m = new Model("C:/Users/keshavb96/Desktop/ObjectFiles/bunny.obj");      // Pass obj file to be drawn here
+	m = new Model(objectfilepath);      // Pass obj file to be drawn here
 	m->setStdTransform();
 
 	//Callbacks
